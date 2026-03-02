@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8">
+  <title>Comparativa BaaS - Tasques</title>
+  <link rel="stylesheet" href="./src/style.css">
+</head>
+<body>
+  <div id="app">
+    <h1>Gestor de Tasques (BaaS)</h1>
+
+    <section id="auth-section">
+      <h3>Accés / Registre</h3>
+      <input type="email" id="email" placeholder="Email">
+      <input type="password" id="password" placeholder="Contrasenya">
+      <div class="buttons">
+        <button id="btn-login">Inicia Sessió</button>
+        <button id="btn-register">Registra't</button>
+      </div>
+    </section>
+
+    <section id="todo-section" style="display: none;">
+      <div class="user-info">
+        <p>Benvingut/da: <span id="user-email"></span></p>
+        <button id="btn-logout">Tancar sessió</button>
+      </div>
+
+      <hr>
+
+      <h3>Les meves tasques</h3>
+      <div class="add-task">
+        <input type="text" id="task-input" placeholder="Nova tasca...">
+        <button id="btn-add-task">Afegir</button>
+      </div>
+
+      <ul id="task-list">
+        </ul>
+    </section>
+  </div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
