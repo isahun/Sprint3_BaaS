@@ -1,6 +1,6 @@
 import "./style.css";
-import { login, addTask, logOut, getTasks } from "./firebase-logic";
-//import { loginSupabase as login, addTaskSupabase as addTask, getTasksSupabase as getTasks } from "./supabase-logic";
+//import { login, addTask, logOut, getTasks } from "./firebase-logic";
+import { loginSb as login, addTaskSb as addTask, getTasksSb as getTasks, logOutSb as logOut } from "./supabase-logic";
 
 const loginBtn = document.getElementById("btn-login");
 const addBtn = document.getElementById("btn-add-task");
@@ -16,7 +16,7 @@ const listTasks = async () => {
 
     tasks.forEach((task) => {
       const li = document.createElement("li");
-      li.textContent = task.títol;
+      li.textContent = task.titol;
       tasksUl.appendChild(li);
     });
   } catch (error) {
@@ -61,6 +61,6 @@ logoutBtn.addEventListener("click", async () => {
     window.location.href = "login.html"; //if it goes throught, redirect
   } catch (error) {
     //if it doesn't, code skips to here
-    console.error("Error de log out: ", error);
+    console.error("Error de log out: ", error.message);
   }
 });
