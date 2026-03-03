@@ -1,5 +1,6 @@
 import "./style.css";
 import { login, addTask, logOut, getTasks } from "./firebase-logic";
+//import { loginSupabase as login, addTaskSupabase as addTask, getTasksSupabase as getTasks } from "./supabase-logic";
 
 const loginBtn = document.getElementById("btn-login");
 const addBtn = document.getElementById("btn-add-task");
@@ -10,11 +11,10 @@ const tasksUl = document.getElementById("task-list");
 //get tasks function
 const listTasks = async () => {
   try {
-    const snapshot = await getTasks();
+    const tasks = await getTasks();
     tasksUl.innerHTML = ""; //clean list first
 
-    snapshot.forEach((doc) => {
-      const task = doc.data();
+    tasks.forEach((task) => {
       const li = document.createElement("li");
       li.textContent = task.títol;
       tasksUl.appendChild(li);
