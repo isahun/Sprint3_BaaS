@@ -38,7 +38,7 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-  color: #15152a
+  color: #15152a;
 }
 
 h3 {
@@ -54,7 +54,6 @@ h3 {
   max-width: 400px;
 }
 
-
 input {
   width: 100%;
   padding: 8px;
@@ -63,8 +62,9 @@ input {
   border-radius: 4px;
 }
 
-.user-info p, span {
-color: #15152a;
+.user-info p,
+span {
+  color: #15152a;
 }
 
 button {
@@ -85,6 +85,7 @@ button:hover {
 ul {
   list-style: none;
   padding: 0;
+  font-size: small;
 }
 
 li {
