@@ -1,4 +1,4 @@
-import { Client, Account } from "appwrite";
+import { Client, Account, Databases, ID, Query } from "appwrite";
 
 const client = new Client()
   .setEndpoint(import.meta.env.VITE_APPWRITE_ENDPOINT)
@@ -7,5 +7,40 @@ const client = new Client()
 const account = new Account(client);
 const databases = new Databases(client);
 
-// Inici de sessió
-const promise = account.createEmailSession('exemple@exemple.com', 'password');
+const DATABASE_ID = "tasques";
+const COLLECTION_ID = "tasques";
+
+//login
+export const loginAw = async (email, password) => {
+  return await account.createEmailPasswordSession( { email: email, password: password} );
+};
+
+//add task
+export const addTaskAw = async (nomTasca) => {
+  const user = await account.get(); //get logged user
+
+  return await databases.createRow(DATABASE_ID, COLLECTION_ID, ID.unique(), {
+    titol: nomTasca,
+    completada: false,
+    usuari: user.$id,
+  });
+};
+
+//get tasks
+export const getTasksAw = async () => {
+    const user = await account.get();
+
+    const response = await databases.listRows(
+        DATABASE_ID,
+        COLLECTION_ID,
+        [Query.equal("usuari", user.$id)]
+    );
+
+    return response.rows;
+};
+
+//logout
+export const logOutAw = async () => {
+    return await account.deleteSession( { sessionId: "current" });
+}
+
