@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -30,3 +30,9 @@ export const addTask = async (nomTasca) => {
     usuari: auth.currentUser.uid,
   });
 };
+
+// Fer log out
+export const logOut = () => {
+  return signOut(auth); //returns a promise
+};
+
