@@ -1,10 +1,28 @@
 import "./style.css";
-import { login, addTask, logOut } from "./firebase-logic";
+import { login, addTask, logOut, getTasks } from "./firebase-logic";
 
 const loginBtn = document.getElementById("btn-login");
 const addBtn = document.getElementById("btn-add-task");
 const logoutBtn = document.getElementById("btn-logout");
 
+const tasksUl = document.getElementById("task-list");
+
+//get tasks function
+const listTasks = async () => {
+  try {
+    const snapshot = await getTasks();
+    tasksUl.innerHTML = ""; //clean list first
+
+    snapshot.forEach((doc) => {
+      const task = doc.data();
+      const li = document.createElement("li");
+      li.textContent = task.títol;
+      tasksUl.appendChild(li);
+    });
+  } catch (error) {
+    console.error("Error visualitzant tasques: ", error);
+  }
+};
 
 //Login event
 loginBtn.addEventListener("click", async () => {
@@ -18,6 +36,7 @@ loginBtn.addEventListener("click", async () => {
     welcomeEmail.textContent = emailInput;
     document.getElementById("todo-section").style.display = "block";
     document.getElementById("auth-section").style.display = "none";
+    await listTasks(); //to retrieve user tasks from the login on
   } catch (error) {
     console.error("Error de login: ", error.message);
   }
@@ -28,7 +47,7 @@ addBtn.addEventListener("click", async () => {
   const textTasca = document.getElementById("task-input").value;
   try {
     await addTask(textTasca);
-
+    await listTasks(); //to see new list, with new task in it
     document.getElementById("task-input").value = ""; // Netegem l'input
   } catch (error) {
     console.error("Error en guardar:", error);

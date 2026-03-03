@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
+import { getFirestore, collection, addDoc, getDocs, query, where } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyC_2yfAMSWDj4S5g6uuu58RgwNa4WAGL2I",
@@ -15,7 +15,7 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore();
 
-// Inici de sessió
+//login function
 export const login = async (email, password) => {
   return signInWithEmailAndPassword(auth, email, password);
 };
@@ -31,7 +31,17 @@ export const addTask = async (nomTasca) => {
   });
 };
 
-// Fer log out
+//get tasks
+export const getTasks = async () => {
+  const tasquesRef = collection(db, "tasques");
+  //select only tasks from logged in user
+  const qry = query(tasquesRef, where("usuari", "==", auth.currentUser.uid));
+
+  const querySnapshot = await getDocs(qry);
+  return querySnapshot; //list of docs
+}
+
+//logout function
 export const logOut = () => {
   return signOut(auth); //returns a promise
 };
