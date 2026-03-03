@@ -28,6 +28,11 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  font-family: sans-serif;
+  background: #15152a;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
 }
 
 h1 {
@@ -40,14 +45,6 @@ h3 {
   color: #15152a;
 }
 
-body {
-  font-family: sans-serif;
-  background: #15152a;
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-}
-
 #app {
   background: rgb(197, 197, 197);
   padding: 2rem;
@@ -57,18 +54,19 @@ body {
   max-width: 400px;
 }
 
+
 input {
   width: 100%;
   padding: 8px;
   margin: 5px 0;
   box-sizing: border-box;
+  border-radius: 4px;
 }
 
-.buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: 10px;
+.user-info p, span {
+color: #15152a;
 }
+
 button {
   flex: 1;
   padding: 10px;
@@ -77,6 +75,7 @@ button {
   color: white;
   border: none;
   border-radius: 4px;
+  margin-top: 6px;
 }
 
 button:hover {
@@ -89,7 +88,7 @@ ul {
 }
 
 li {
-  background: #eee;
+  color: #15152a;
   margin: 5px 0;
   padding: 10px;
   border-radius: 4px;
