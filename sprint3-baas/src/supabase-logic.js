@@ -7,7 +7,7 @@ const supabase = createClient(
 
 //login function
 export const loginSb = async (email, password) => {
-  const { user, error } = await supabase.auth.signInWithPassword({
+  const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password
   });
@@ -24,7 +24,7 @@ export const addTaskSb = async (nomTasca) => {
     .from("tasques")
     .insert([
         { 
-            títol: "Nova tasca", 
+            titol: nomTasca, 
             completada: false, 
             usuari: user.id 
         }
@@ -45,4 +45,13 @@ export const addTaskSb = async (nomTasca) => {
 
             if(error) throw error;
             return data; //returns an array of objects
+    };
+
+    //sign out
+    export const logOutSb = async () => {
+        const { error } = await supabase.auth.signOut();
+
+        if (error) {
+            throw error;
+        }
     };
