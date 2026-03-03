@@ -1,5 +1,6 @@
 import "./style.css";
-import { login, addTask, logOut, getTasks } from "./firebase-logic";
+//import { login, addTask, logOut, getTasks } from "./firebase-logic";
+import { loginAw as login, addTaskAw as addTask, getTasksAw as getTasks, logOutAw as logOut } from "./appwrite-logic";
 
 const loginBtn = document.getElementById("btn-login");
 const addBtn = document.getElementById("btn-add-task");
@@ -10,13 +11,12 @@ const tasksUl = document.getElementById("task-list");
 //get tasks function
 const listTasks = async () => {
   try {
-    const snapshot = await getTasks();
+    const tasks = await getTasks();
     tasksUl.innerHTML = ""; //clean list first
 
-    snapshot.forEach((doc) => {
-      const task = doc.data();
+    tasks.forEach((task) => {
       const li = document.createElement("li");
-      li.textContent = task.títol;
+      li.textContent = task.titol;
       tasksUl.appendChild(li);
     });
   } catch (error) {
