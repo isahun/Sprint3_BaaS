@@ -4,13 +4,7 @@
 This project is part of the **Frontend Development Bootcamp (Sprint 3.7)**. It demonstrates the integration of three different **Backend as a Service (BaaS)** platforms to handle authentication and database operations in a decoupled web application.
 
 
----
-
-
-# BaaS Comparison Project: Task Manager
-
-
-A comprehensive comparison between the three major Backend-as-a-Service (BaaS) platforms: **Firebase**, **Supabase**, and **Appwrite**. This project implements the same Task Manager functionality across all three services to evaluate their developer experience, setup complexity, and performance.
+It will include comprehensive comparison between the three major Backend-as-a-Service (BaaS) platforms: **Firebase**, **Supabase**, and **Appwrite**. This project implements the same Task Manager functionality across all three services to evaluate their developer experience, setup complexity, and performance.
 
 
 ---
@@ -21,7 +15,7 @@ The goal of this project is to build a functional To-Do list application that in
 * **Secure Authentication**: Sign in with a test account.
 * **Task Management**: Create new tasks and store them in a remote database.
 * **Data Isolation**: Users only see their own tasks (Row Level Security & Permissions).
-* **Session Persistence**: Automatic login on page reload (optimized for Appwrite's strict session policy).
+
 
 
 ---
