@@ -17,10 +17,9 @@ const restoreSession = async () => {
       document.getElementById("todo-section").style.display = "block";
       document.getElementById("auth-section").style.display = "none";
       await listTasks();
-      console.log("Sesssió recuperada!");
     }
   } catch(error) {
-    console.log("No hi ha cap sessió iniciada.")
+    
   }
 }
 
