@@ -1,10 +1,10 @@
-import { Client, Account, Databases, ID, Query, account } from "appwrite";
+import { Client, Account, Databases, ID, Query } from "appwrite";
 
 const client = new Client()
   .setEndpoint(import.meta.env.VITE_APPWRITE_ENDPOINT)
   .setProject(import.meta.env.VITE_APPWRITE_PROJECT_ID);
 
-const account = new Account(client);
+export const account = new Account(client); //export account to allow external queries and use it in main.js
 const databases = new Databases(client);
 
 const DATABASE_ID = "69a736970014898261fe";

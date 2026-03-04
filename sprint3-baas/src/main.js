@@ -1,12 +1,28 @@
 import "./style.css";
 //import { login, addTask, logOut, getTasks } from "./firebase-logic";
-import { loginAw as login, addTaskAw as addTask, getTasksAw as getTasks, logOutAw as logOut } from "./appwrite-logic";
+import { loginAw as login, addTaskAw as addTask, getTasksAw as getTasks, logOutAw as logOut, account } from "./appwrite-logic";
 
 const loginBtn = document.getElementById("btn-login");
 const addBtn = document.getElementById("btn-add-task");
 const logoutBtn = document.getElementById("btn-logout");
 
 const tasksUl = document.getElementById("task-list");
+
+//function to skip login and avoid error and manually kill session if already logged in
+const restoreSession = async () => {
+  try {
+    const user = await account.get(); //check if someone is logged in
+    if (user) { //if there's a session, fill UI
+      document.getElementById("user-email").textContent = user.email;
+      document.getElementById("todo-section").style.display = "block";
+      document.getElementById("auth-section").style.display = "none";
+      await listTasks();
+      console.log("Sesssió recuperada!");
+    }
+  } catch(error) {
+    console.log("No hi ha cap sessió iniciada.")
+  }
+}
 
 //get tasks function
 const listTasks = async () => {
@@ -64,3 +80,6 @@ logoutBtn.addEventListener("click", async () => {
     console.error("Error de log out: ", error);
   }
 });
+
+//run restoreSession()
+restoreSession();
