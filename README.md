@@ -65,8 +65,7 @@ For your convenience, all three platforms share the same test email, but the pas
 | **Setup Ease** | High (Very intuitive) | Medium (Requires SQL knowledge) | Low (Requires manual IDs/Attributes) |
 | **Response Time** | Instant (Real-time sync) | Very Fast | Fast & Reliable |
 | **Documentation** | Extensive but vast | Excellent & Modern | Good but evolving quickly |
-| **Developer Exp.** | "Magic" (Plug & Play) | Professional (Standard SQL) | Explicit (Highly secure/Robust) |
-
+| **Developer Exp.** | Beginner friendly | Professional (needs some skill in SQL) | Specific (Highly secure/Robust) |
 
 ---
 
@@ -106,22 +105,26 @@ For your convenience, all three platforms share the same test email, but the pas
    
    
     * `Firebase`
+
     VITE_FIREBASE_API_KEY
     VITE_FIREBASE_PROJECT_ID
 
 
     * `Supabase`
+
     VITE_SUPABASE_URL
     VITE_SUPABASE_ANON_KEY
 
 
     * `Appwrite`
+
     VITE_APPWRITE_ENDPOINT
     VITE_APPWRITE_PROJECT_ID
     VITE_APPWRITE_DATABASE_ID
     VITE_APPWRITE_COLLECTION_ID
 
-4.  **Launch Development Server:**
+4.  **Launch Development Server:**  
+
     npm run dev
 
 
@@ -158,6 +161,7 @@ Follow these steps to test the application logic:
 
 
 5. Sign Out: Click the Logout button to clear your session and return to the login screen.
+
 
 
 
