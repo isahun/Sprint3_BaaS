@@ -7,8 +7,8 @@ const client = new Client()
 export const account = new Account(client); //export account to allow external queries and use it in main.js
 const databases = new Databases(client);
 
-const DATABASE_ID = "69a736970014898261fe";
-const COLLECTION_ID = "tasques";
+const DATABASE_ID = import.meta.env.VITE_APPWRITE_DATABASE_ID;;
+const COLLECTION_ID = import.meta.env.VITE_APPWRITE_COLLECTION_ID;
 
 //login
 export const loginAw = async (email, password) => {
