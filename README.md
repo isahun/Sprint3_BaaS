@@ -101,21 +101,27 @@ For your convenience, all three platforms share the same test email, but the pas
     * `Firebase`
 
     VITE_FIREBASE_API_KEY
+
     VITE_FIREBASE_PROJECT_ID
 
 
     * `Supabase`
 
     VITE_SUPABASE_URL
+
     VITE_SUPABASE_ANON_KEY
 
 
     * `Appwrite`
 
     VITE_APPWRITE_ENDPOINT
+
     VITE_APPWRITE_PROJECT_ID
+
     VITE_APPWRITE_DATABASE_ID
+
     VITE_APPWRITE_COLLECTION_ID
+    
 
 4.  **Launch Development Server:**  
 
