@@ -1,8 +1,8 @@
 import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
-  "https://mmsdwqgkozblneldbbqi.supabase.co",
-  "sb_publishable_P_TbrkoU_FinCpbBkI4V7A_5o836iDx",
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_ANON_KEY
 );
 
 //login function
