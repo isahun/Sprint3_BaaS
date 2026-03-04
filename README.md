@@ -118,6 +118,8 @@ For your convenience, all three platforms share the same test email, but the pas
     * `Appwrite`
     VITE_APPWRITE_ENDPOINT
     VITE_APPWRITE_PROJECT_ID
+    VITE_APPWRITE_DATABASE_ID
+    VITE_APPWRITE_COLLECTION_ID
 
 4.  **Launch Development Server:**
     npm run dev
